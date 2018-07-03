@@ -1,0 +1,7 @@
+# ignore files for Python packaging:
+*~
+*.pyprof
+*.pyc
+**build/
+**dist/
+*.egg-info
