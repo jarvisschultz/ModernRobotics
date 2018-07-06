@@ -212,7 +212,7 @@ Returns T in SE(3) representing the end-effector frame when the joints are at th
 ;
 Example:
 Inputs:
-M={{-1,0,0,0},{0,1,0,6},{0,0,-1,2},{0,0,0,1}};
+  M={{-1,0,0,0},{0,1,0,6},{0,0,-1,2},{0,0,0,1}};
   Blist={{0,0,-1,2,0,0},{0,0,0,0,1,0},{0,0,1,0,0,0.1}}\[Transpose];
   thetalist={{(Pi/2.0),3,Pi}}\[Transpose];
   T = FKinBody[M,Blist,thetalist]//MatrixForm
@@ -232,7 +232,7 @@ Returns T in SE(3) representing the end-effector frame when the joints are at th
 ;
 Example:
 Inputs:
-M={{-1,0,0,0},{0,1,0,6},{0,0,-1,2},{0,0,0,1}};
+  M={{-1,0,0,0},{0,1,0,6},{0,0,-1,2},{0,0,0,1}};
   Slist={{0,0,1,4,0,0},{0,0,0,0,1,0},{0,0,-1,-6,0,-0.1}}\[Transpose];
   thetalist={{Pi/2,3,Pi}}\[Transpose];
   T = FKinSpace[M,Slist,thetalist]//MatrixForm
@@ -251,9 +251,9 @@ Returns the corresponding body Jacobian (6xn real numbers).
 ;
 Example:
 Input:
-Blist={{0,0,1,0,0.2,0.2},{1,0,0,2,0,3},{0,1,0,0,2,1},{1,0,0,0.2,0.3,0.4}}\[Transpose];
-thetalist={{0.2,1.1,0.1,1.2}}\[Transpose];
-Jb=JacobianBody[Blist,thetalist]//MatrixForm
+  Blist={{0,0,1,0,0.2,0.2},{1,0,0,2,0,3},{0,1,0,0,2,1},{1,0,0,0.2,0.3,0.4}}\[Transpose];
+  thetalist={{0.2,1.1,0.1,1.2}}\[Transpose];
+  Jb=JacobianBody[Blist,thetalist]//MatrixForm
 Output:
 (-0.04528405057966491   0.9950041652780258  0.  1
 0.7435931265563965  0.09304864640049498 0.3623577544766736  0
@@ -271,10 +271,9 @@ Returns the corresponding space Jacobian (6xn real numbers)
 ;
 Example:
 Input:
-Slist={{0,0,1,0,0.2,0.2}, {1,0,0,2,0,3}, {0,1,0,0,2,1}, {1,0,0,0.2,0.3,0.4}}\[Transpose];
-thetalist={{0.2,1.1,0.1,1.2}}\[Transpose];
-Js = JacobianSpace[Slist, thetalist]//MatrixForm
-
+  Slist={{0,0,1,0,0.2,0.2}, {1,0,0,2,0,3}, {0,1,0,0,2,1}, {1,0,0,0.2,0.3,0.4}}\[Transpose];
+  thetalist={{0.2,1.1,0.1,1.2}}\[Transpose];
+  Js = JacobianSpace[Slist, thetalist]//MatrixForm
 Ouput:
 (0  0.9800665778412416  -0.09011563789485476    0.957494264730031
 0   0.19866933079506122 0.4445543984476258  0.28487556541794845
@@ -298,7 +297,7 @@ The maximum number of iterations before the algorithm is terminated has been har
 ;
 Example:
 Input:
-Blist={{0,0,-1,2,0,0},{0,0,0,0,1,0},{0,0,1,0,0,0.1}}\[Transpose];
+  Blist={{0,0,-1,2,0,0},{0,0,0,0,1,0},{0,0,1,0,0,0.1}}\[Transpose];
   M={{-1,0,0,0},{0,1,0,6},{0,0,-1,2},{0,0,0,1}};
   T = {{0,1,0,-5},{1,0,0,4},{0,0,-1,1.6858},{0,0,0,1}};
   thetalist0={{1.5,2.5,3}}\[Transpose];
@@ -324,7 +323,7 @@ The maximum number of iterations before the algorithm is terminated has been har
 ;
 Exapmle:
 Input:
-Slist={{0,0,1,4,0,0},{0,0,0,0,1,0},{0,0,-1,-6,0,-0.1}}\[Transpose];
+  Slist={{0,0,1,4,0,0},{0,0,0,0,1,0},{0,0,-1,-6,0,-0.1}}\[Transpose];
   M={{-1,0,0,0},{0,1,0,6},{0,0,-1,2},{0,0,0,1}};
   T = {{0,1,0,-5},{1,0,0,4},{0,0,-1,1.6858},{0,0,0,1}};
   thetalist0={{1.5,2.5,3}}\[Transpose];
@@ -542,13 +541,13 @@ Returns thetalistNext: Vector of joint variables after dt from first order Euler
            dthetalistNext: Vector of joint rates after dt from first order Euler integration.
 ;
 Example Inputs (3 Link Robot):
-thetalist={{0.1,0.1,0.1}}\[Transpose];
-dthetalist={{0.1,0.2,0.3}}\[Transpose];
-ddthetalist={{2,1.5,1}}\[Transpose];
-dt=0.1;
-{thetalistNext,dthetalistNext} = EulerStep[thetalist,dthetalist,ddthetalist,dt]
+  thetalist={{0.1,0.1,0.1}}\[Transpose];
+  dthetalist={{0.1,0.2,0.3}}\[Transpose];
+  ddthetalist={{2,1.5,1}}\[Transpose];
+  dt=0.1;
+  {thetalistNext,dthetalistNext} = EulerStep[thetalist,dthetalist,ddthetalist,dt]
 Output:
-{{{0.11},{0.12},{0.13}},{{0.3},{0.35},{0.4}}}
+  {{{0.11},{0.12},{0.13}},{{0.3},{0.35},{0.4}}}
 "
 
 InverseDynamicsTrajectory::usage="
@@ -639,7 +638,7 @@ Returns s: The path parameter s(t) corresponding to a third-order polynomial mot
 ;
 Example:
 Input:
-Tf=2;
+  Tf=2;
   t=0.6;
   s = CubicTimeScaling[Tf,t]
 Output:
@@ -654,7 +653,7 @@ Returns s: The path parameter s(t) corresponding to a fifth-order polynomial mot
 ;
 Example:
 Input:
-Tf=2;
+  Tf=2;
   t=0.6;
   s = QuinticTimeScaling[Tf,t]
 Output:
@@ -672,12 +671,12 @@ The returned trajectory is a straight-line motion in joint space.
 ;
 Example:
 Input:
-thetastart={{1,0,0,1,1,0.2,0,1}}\[Transpose];
-thetaend={{1.2,0.5,0.6,1.1,2,2,0.9,1}}\[Transpose];
-Tf=4;
-Np=6;
-method=3;
-traj = JointTrajectory[thetastart,thetaend,Tf,Np,method]//MatrixForm//N
+  thetastart={{1,0,0,1,1,0.2,0,1}}\[Transpose];
+  thetaend={{1.2,0.5,0.6,1.1,2,2,0.9,1}}\[Transpose];
+  Tf=4;
+  Np=6;
+  method=3;
+  traj = JointTrajectory[thetastart,thetaend,Tf,Np,method]//MatrixForm//N
 Output:
 (1. 0.  0.  1.  1.  0.2 0.  1.
 1.0208  0.052   0.0624  1.0104  1.104   0.3872  0.0936  1.
@@ -697,16 +696,16 @@ This function calculates a trajectory corresponding to the screw motion about a 
 ;
 Example:
 Input:
-Xstart={{1,0,0,1},{0,1,0,0},{0,0,1,1},{0,0,0,1}};
+  Xstart={{1,0,0,1},{0,1,0,0},{0,0,1,1},{0,0,0,1}};
   Xend={{0,0,1,0.1},{1,0,0,0},{0,1,0,4.1},{0,0,0,1}};
   Tf=5;
   Np=4;
   method=3;
   traj = ScrewTrajectory[Xstart,Xend,Tf,Np,method];
   traj[[1]]//MatrixForm
-traj[[2]]//MatrixForm
-traj[[3]]//MatrixForm
-traj[[4]]//MatrixForm
+  traj[[2]]//MatrixForm
+  traj[[3]]//MatrixForm
+  traj[[4]]//MatrixForm
 Output:
  (1.    0.  0.  1.
   0.    1.  0.  0.
@@ -736,7 +735,7 @@ This function is similar to ScrewTrajectory,except the origin of the end-effecto
 ;
 Example:
 Input:
-Xstart={{1,0,0,1},{0,1,0,0},{0,0,1,1},{0,0,0,1}};
+  Xstart={{1,0,0,1},{0,1,0,0},{0,0,1,1},{0,0,0,1}};
   Xend={{0,0,1,0.1},{1,0,0,0},{0,1,0,4.1},{0,0,0,1}};
   Tf=5;
   Np=4;
@@ -784,7 +783,7 @@ Returns taulist: The vector of joint forces/torques computed by the feedback lin
 ;
 Example:
 Input:
-thetalist={{0.1,0.1,0.1}}\[Transpose];
+  thetalist={{0.1,0.1,0.1}}\[Transpose];
   dthetalist={{0.1,0.2,0.3}}\[Transpose];
   eint={{0.2,0.2,0.2}}\[Transpose];
   g={{0,0,-9.8}}\[Transpose];
@@ -1037,6 +1036,49 @@ AppendTo[labels, StringJoin["DesiredTheta",ToString[i]]];
 col = RandomColor[];AppendTo[style, col];AppendTo[style, {col,Dashed}],{i,1,links}];
 Print[ListLinePlot[plotAngles,PlotLegends->labels,PlotStyle->style,AxesLabel->{"Time","Joint Angles"},PlotLabel->"Plot of Actual and Desired Joint Angles",PlotRange->Full]];taumat=taumat\[Transpose];thetamat=thetamat\[Transpose];
 Return[{taumat,thetamat}]]
+
+
+(* Protect all functions to avoid user re-definitions *)
+Protect["NearZero"]
+Protect["RotInv"]
+Protect["VecToso3"]
+Protect["so3ToVec"]
+Protect["AxisAng3"]
+Protect["MatrixExp3"]
+Protect["MatrixLog3"]
+Protect["RpToTrans"]
+Protect["TransToRp"]
+Protect["TransInv"]
+Protect["VecTose3"]
+Protect["se3ToVec"]
+Protect["Adjoint"]
+Protect["ScrewToAxis"]
+Protect["AxisAng6"]
+Protect["MatrixExp6"]
+Protect["MatrixLog6"]
+Protect["FKinBody"]
+Protect["FKinSpace"]
+Protect["JacobianBody"]
+Protect["JacobianSpace"]
+Protect["IKinBody"]
+Protect["IKinSpace"]
+Protect["ad"]
+Protect["InverseDynamics"]
+Protect["MassMatrix"]
+Protect["VelQuadraticForces"]
+Protect["GravityForces"]
+Protect["EndEffectorForces"]
+Protect["ForwardDynamics"]
+Protect["EulerStep"]
+Protect["InverseDynamicsTrajectory"]
+Protect["ForwardDynamicsTrajectory"]
+Protect["CubicTimeScaling"]
+Protect["QuinticTimeScaling"]
+Protect["JointTrajectory"]
+Protect["ScrewTrajectory"]
+Protect["CartesianTrajectory"]
+Protect["ComputedTorque"]
+Protect["SimulateControl"]
 
 
 End[ ];
